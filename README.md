@@ -6,7 +6,7 @@ startBackgroundService(); // Background service চালু
 stopBackgroundService();  // থামানোর জন্য
 
 # ===============Android Modification==============
-android>app>build.gradle>
+### android>app>build.gradle>
 * Added this Code And This Dependency
 
              compileOptions {
