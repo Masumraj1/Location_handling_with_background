@@ -5,7 +5,7 @@ await initializeService(); // একবার অ্যাপ স্টার্
 startBackgroundService(); // Background service চালু
 stopBackgroundService();  // থামানোর জন্য
 
-# ===============Android Modification==============
+# Android Modification
 ### android>app>build.gradle>
 * Added this Code And This Dependency
 
