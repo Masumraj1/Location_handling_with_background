@@ -1,4 +1,3 @@
-
 import 'package:geolocator/geolocator.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -21,7 +20,6 @@ class AttendanceService {
       return 'Location permission দরকার। Allow করুন।';
     }
 
-
     final always = await Permission.locationAlways.request();
     if (!always.isGranted) {
       return 'ব্যাকগ্রাউন্ডে location-এর জন্য "Allow all the time" বেছে নিন।';
@@ -43,11 +41,9 @@ class AttendanceService {
     );
   }
 
-
   static Future<String?> checkIn() async {
     final permissionError = await _ensurePermissions();
     if (permissionError != null) return permissionError;
-
 
     Position pos;
     try {
@@ -84,7 +80,6 @@ class AttendanceService {
       lng = prefs.getDouble(Keys.lastLng) ?? 0;
     }
 
-
     final ok = await ApiService.checkOut(lat, lng);
     if (!ok) {
       return 'Check-out সার্ভারে পাঠানো যায়নি। আবার চেষ্টা করুন।';
@@ -93,7 +88,6 @@ class AttendanceService {
     stopTracking();
     return null;
   }
-
 
   static Future<bool> resumeIfCheckedIn() async {
     final prefs = await SharedPreferences.getInstance();

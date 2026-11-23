@@ -1,4 +1,3 @@
-
 class AppConfig {
   static const bool useMockApi = true;
   static const String baseUrl = 'https://your-backend.com/api';
@@ -6,7 +5,6 @@ class AppConfig {
   static const Duration sendInterval = Duration(minutes: 2);
   static const Duration gpsCheckInterval = Duration(minutes: 1);
 }
-
 
 class Keys {
   static const String token = 'token';

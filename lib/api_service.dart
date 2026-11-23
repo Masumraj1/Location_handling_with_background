@@ -1,4 +1,3 @@
-
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
@@ -14,7 +13,6 @@ class ApiService {
   static Future<bool> checkOut(double lat, double lng) {
     return _post('/attendance/check-out', _body(lat, lng));
   }
-
 
   static Future<bool> sendLocation(double lat, double lng) async {
     final prefs = await _prefs();
@@ -53,7 +51,6 @@ class ApiService {
     };
   }
 
-
   static Future<bool> _post(String path, Map<String, dynamic> body) async {
     if (AppConfig.useMockApi) {
       debugPrint('MOCK POST $path -> $body');
@@ -66,13 +63,13 @@ class ApiService {
 
       final res = await http
           .post(
-        Uri.parse('${AppConfig.baseUrl}$path'),
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': 'Bearer $token',
-        },
-        body: jsonEncode(body),
-      )
+            Uri.parse('${AppConfig.baseUrl}$path'),
+            headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer $token',
+            },
+            body: jsonEncode(body),
+          )
           .timeout(const Duration(seconds: 20));
       return res.statusCode >= 200 && res.statusCode < 300;
     } catch (e) {
@@ -80,7 +77,6 @@ class ApiService {
       return false;
     }
   }
-
 
   static Future<SharedPreferences> _prefs() async {
     final p = await SharedPreferences.getInstance();
